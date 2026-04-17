@@ -1,4 +1,4 @@
-name: Update Telegram subscriber counters
+name: Update messenger subscriber counters
 
 on:
   schedule:
@@ -20,19 +20,22 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Update subscriber counters
+      - name: Update Telegram subscriber counters
         run: node scripts/update-telegram-subscribers.mjs
+
+      - name: Update MAX subscriber counters
+        run: node scripts/update-max-subscribers.mjs
 
       - name: Commit updated counters
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if git diff --quiet -- docs/telegram-subscribers.json docs/telegram-subscribers.js; then
+          if git diff --quiet -- docs/telegram-subscribers.json docs/telegram-subscribers.js docs/max-subscribers.json docs/max-subscribers.js; then
             echo "No subscriber counter changes."
             exit 0
           fi
 
-          git add docs/telegram-subscribers.json docs/telegram-subscribers.js
-          git commit -m "Update Telegram subscriber counters"
+          git add docs/telegram-subscribers.json docs/telegram-subscribers.js docs/max-subscribers.json docs/max-subscribers.js
+          git commit -m "Update messenger subscriber counters"
           git push
