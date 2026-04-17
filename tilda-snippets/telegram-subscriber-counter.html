@@ -1,0 +1,108 @@
+<!--
+  Универсальный счетчик подписчиков Telegram для Tilda.
+
+  Перед вставкой:
+  1. Проверьте DATA_SCRIPT_URL: он должен вести на файл telegram-subscribers.js в GitHub Pages.
+  2. Укажите CHANNEL_USERNAME для нужной посадочной.
+  3. Оставьте FALLBACK_TEXT равным статичному тексту в Zero Block.
+  4. Если можно, укажите TARGET_SELECTOR. Если не указать, скрипт найдет элемент по FALLBACK_TEXT.
+-->
+<script>
+(function () {
+  var DATA_SCRIPT_URL = "https://juliljina.github.io/subscriber-counters/telegram-subscribers.js";
+  var CHANNEL_USERNAME = "rustartupgrants";
+  var FALLBACK_TEXT = "4 823 подписчика";
+  var TARGET_SELECTOR = "";
+  var MAX_ATTEMPTS = 40;
+  var RETRY_DELAY_MS = 250;
+
+  function normalizeUsername(value) {
+    return String(value || "")
+      .trim()
+      .replace(/^https?:\/\/t\.me\//i, "")
+      .replace(/^@/, "")
+      .replace(/\/$/, "");
+  }
+
+  function getCounterElement() {
+    if (TARGET_SELECTOR) {
+      return document.querySelector(TARGET_SELECTOR);
+    }
+
+    var candidates = document.querySelectorAll(".tn-atom, [data-tg-subscriber-counter]");
+    for (var i = 0; i < candidates.length; i += 1) {
+      if ((candidates[i].textContent || "").trim() === FALLBACK_TEXT) {
+        return candidates[i];
+      }
+    }
+
+    return null;
+  }
+
+  function setCounterText(text, attempt, onlyIfEmpty) {
+    var counter = getCounterElement();
+    if (counter) {
+      if (onlyIfEmpty && (counter.textContent || "").trim()) {
+        return;
+      }
+
+      counter.textContent = text;
+      return;
+    }
+
+    if (attempt < MAX_ATTEMPTS) {
+      window.setTimeout(function () {
+        setCounterText(text, attempt + 1, onlyIfEmpty);
+      }, RETRY_DELAY_MS);
+    }
+  }
+
+  function ensureFallbackText() {
+    setCounterText(FALLBACK_TEXT, 0, true);
+  }
+
+  function applyCounter() {
+    var username = normalizeUsername(CHANNEL_USERNAME);
+    var data = window.TelegramSubscriberCounts;
+    var channel = data && data.channels && data.channels[username];
+
+    if (!channel || !channel.formatted) {
+      ensureFallbackText();
+      return;
+    }
+
+    setCounterText(channel.formatted, 0, false);
+  }
+
+  function loadDataScript() {
+    if (!DATA_SCRIPT_URL) {
+      ensureFallbackText();
+      return;
+    }
+
+    if (window.TelegramSubscriberCounts) {
+      applyCounter();
+      return;
+    }
+
+    var script = document.createElement("script");
+    script.src = DATA_SCRIPT_URL + (DATA_SCRIPT_URL.indexOf("?") === -1 ? "?" : "&") + "v=" + Math.floor(Date.now() / 3600000);
+    script.async = true;
+    script.onload = applyCounter;
+    script.onerror = ensureFallbackText;
+    document.head.appendChild(script);
+  }
+
+  function init() {
+    ensureFallbackText();
+    window.addEventListener("telegram-subscribers:loaded", applyCounter);
+    loadDataScript();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
