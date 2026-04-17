@@ -75,7 +75,7 @@
   }
 
   function loadDataScript() {
-    if (!DATA_SCRIPT_URL || DATA_SCRIPT_URL.indexOf("YOUR_GITHUB_USERNAME") !== -1) {
+    if (!DATA_SCRIPT_URL) {
       ensureFallbackText();
       return;
     }
