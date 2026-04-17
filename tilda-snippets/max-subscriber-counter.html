@@ -1,0 +1,113 @@
+<!--
+  Универсальный счетчик подписчиков MAX для Tilda.
+
+  Перед вставкой:
+  1. Проверьте DATA_SCRIPT_URL: он должен вести на файл max-subscribers.js в GitHub Pages.
+  2. Укажите MAX_CHANNEL_ID для нужной посадочной.
+  3. Оставьте FALLBACK_TEXT равным статичному тексту в Zero Block.
+  4. Если можно, укажите TARGET_SELECTOR. Если не указать, скрипт найдет элемент по FALLBACK_TEXT.
+-->
+<script>
+(function () {
+  var DATA_SCRIPT_URL = "https://juliljina.github.io/subscriber-counters/max-subscribers.js";
+  var MAX_CHANNEL_ID = "id782615006635_biz";
+  var FALLBACK_TEXT = "150 подписчиков";
+  var TARGET_SELECTOR = "";
+  var MAX_ATTEMPTS = 40;
+  var RETRY_DELAY_MS = 250;
+
+  function normalizeChannelId(value) {
+    var withoutOrigin = String(value || "")
+      .trim()
+      .replace(/^max:\/\/max\.ru\//i, "")
+      .replace(/^https?:\/\/(?:web\.)?max\.ru\//i, "")
+      .replace(/^@/, "")
+      .replace(/^\/+/, "")
+      .split(/[?#]/)[0]
+      .replace(/\/+$/, "");
+
+    return withoutOrigin.split("/")[0];
+  }
+
+  function getCounterElement() {
+    if (TARGET_SELECTOR) {
+      return document.querySelector(TARGET_SELECTOR);
+    }
+
+    var candidates = document.querySelectorAll(".tn-atom, [data-max-subscriber-counter]");
+    for (var i = 0; i < candidates.length; i += 1) {
+      if ((candidates[i].textContent || "").trim() === FALLBACK_TEXT) {
+        return candidates[i];
+      }
+    }
+
+    return null;
+  }
+
+  function setCounterText(text, attempt, onlyIfEmpty) {
+    var counter = getCounterElement();
+    if (counter) {
+      if (onlyIfEmpty && (counter.textContent || "").trim()) {
+        return;
+      }
+
+      counter.textContent = text;
+      return;
+    }
+
+    if (attempt < MAX_ATTEMPTS) {
+      window.setTimeout(function () {
+        setCounterText(text, attempt + 1, onlyIfEmpty);
+      }, RETRY_DELAY_MS);
+    }
+  }
+
+  function ensureFallbackText() {
+    setCounterText(FALLBACK_TEXT, 0, true);
+  }
+
+  function applyCounter() {
+    var channelId = normalizeChannelId(MAX_CHANNEL_ID);
+    var data = window.MaxSubscriberCounts;
+    var channel = data && data.channels && data.channels[channelId];
+
+    if (!channel || !channel.formatted) {
+      ensureFallbackText();
+      return;
+    }
+
+    setCounterText(channel.formatted, 0, false);
+  }
+
+  function loadDataScript() {
+    if (!DATA_SCRIPT_URL) {
+      ensureFallbackText();
+      return;
+    }
+
+    if (window.MaxSubscriberCounts) {
+      applyCounter();
+      return;
+    }
+
+    var script = document.createElement("script");
+    script.src = DATA_SCRIPT_URL + (DATA_SCRIPT_URL.indexOf("?") === -1 ? "?" : "&") + "v=" + Math.floor(Date.now() / 3600000);
+    script.async = true;
+    script.onload = applyCounter;
+    script.onerror = ensureFallbackText;
+    document.head.appendChild(script);
+  }
+
+  function init() {
+    ensureFallbackText();
+    window.addEventListener("max-subscribers:loaded", applyCounter);
+    loadDataScript();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
