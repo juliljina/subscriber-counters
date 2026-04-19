@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-18T23:54:43.591Z",
+  "generatedAt": "2026-04-19T23:56:08.282Z",
   "channels": {
     "id782615006635_biz": {
       "ok": true,
       "id": "id782615006635_biz",
       "title": "Гранты стартапам",
       "url": "https://max.ru/id782615006635_biz",
-      "count": 193,
-      "formatted": "193 подписчика",
-      "updatedAt": "2026-04-18T23:54:43.591Z",
+      "count": 223,
+      "formatted": "223 подписчика",
+      "updatedAt": "2026-04-19T23:56:08.282Z",
       "source": "max",
       "stale": false
     }
