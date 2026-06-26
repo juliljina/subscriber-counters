@@ -1,15 +1,15 @@
 window.TelegramSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-06-25T23:16:52.978Z",
+  "generatedAt": "2026-06-26T23:04:45.361Z",
   "channels": {
     "rustartupgrants": {
       "ok": true,
       "username": "rustartupgrants",
       "title": "Гранты стартапам",
       "url": "https://t.me/rustartupgrants",
-      "count": 5332,
-      "formatted": "5 332 подписчика",
-      "updatedAt": "2026-06-25T23:16:52.978Z",
+      "count": 5330,
+      "formatted": "5 330 подписчиков",
+      "updatedAt": "2026-06-26T23:04:45.361Z",
       "source": "telegram",
       "stale": false
     }
