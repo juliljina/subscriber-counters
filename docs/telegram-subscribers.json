@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-30T23:11:16.576Z",
+  "generatedAt": "2026-07-01T23:14:02.613Z",
   "channels": {
     "rustartupgrants": {
       "ok": true,
       "username": "rustartupgrants",
       "title": "Гранты стартапам",
       "url": "https://t.me/rustartupgrants",
-      "count": 5329,
-      "formatted": "5 329 подписчиков",
-      "updatedAt": "2026-06-30T23:11:16.576Z",
+      "count": 5331,
+      "formatted": "5 331 подписчик",
+      "updatedAt": "2026-07-01T23:14:02.613Z",
       "source": "telegram",
       "stale": false
     }
