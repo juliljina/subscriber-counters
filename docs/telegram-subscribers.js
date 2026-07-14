@@ -1,19 +1,17 @@
 window.TelegramSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-07-13T22:55:04.920Z",
+  "generatedAt": "2026-07-14T22:55:50.293Z",
   "channels": {
     "rustartupgrants": {
       "ok": true,
       "username": "rustartupgrants",
       "title": "Гранты стартапам",
       "url": "https://t.me/rustartupgrants",
-      "count": 5352,
-      "formatted": "5 352 подписчика",
-      "updatedAt": "2026-07-12T22:46:08.670Z",
-      "source": "previous",
-      "stale": true,
-      "lastAttemptAt": "2026-07-13T22:55:04.920Z",
-      "lastError": "fetch failed"
+      "count": 5346,
+      "formatted": "5 346 подписчиков",
+      "updatedAt": "2026-07-14T22:55:50.293Z",
+      "source": "telegram",
+      "stale": false
     }
   }
 };
