@@ -1,6 +1,6 @@
 window.MaxSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-07-28T22:56:47.153Z",
+  "generatedAt": "2026-07-29T22:58:08.571Z",
   "channels": {
     "id782615006635_biz": {
       "ok": true,
@@ -9,7 +9,7 @@ window.MaxSubscriberCounts = {
       "url": "https://max.ru/id782615006635_biz",
       "count": 439,
       "formatted": "439 подписчиков",
-      "updatedAt": "2026-07-28T22:56:47.153Z",
+      "updatedAt": "2026-07-29T22:58:08.571Z",
       "source": "max",
       "stale": false
     }
