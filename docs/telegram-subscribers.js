@@ -27,3 +27,4 @@ window.TelegramSubscriberCounts = {
   }
 };
 window.dispatchEvent(new CustomEvent('telegram-subscribers:loaded', { detail: window.TelegramSubscriberCounts }));
+<!-- trigger redeploy 2026-08-06T12:24:50Z -->
