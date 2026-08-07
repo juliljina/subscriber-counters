@@ -1,15 +1,15 @@
 window.TelegramSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-08-06T11:59:11.352Z",
+  "generatedAt": "2026-08-07T01:29:05.680Z",
   "channels": {
     "rustartupgrants": {
       "ok": true,
       "username": "rustartupgrants",
       "title": "Гранты стартапам",
       "url": "https://t.me/rustartupgrants",
-      "count": 5364,
-      "formatted": "5 364 подписчика",
-      "updatedAt": "2026-08-06T11:59:11.352Z",
+      "count": 5365,
+      "formatted": "5 365 подписчиков",
+      "updatedAt": "2026-08-07T01:29:05.680Z",
       "source": "telegram",
       "stale": false
     },
@@ -18,13 +18,12 @@ window.TelegramSubscriberCounts = {
       "username": "methodyzer",
       "title": "Методайзер",
       "url": "https://t.me/methodyzer",
-      "count": 21163,
-      "formatted": "21 163 подписчика",
-      "updatedAt": "2026-08-06T11:59:11.352Z",
+      "count": 21175,
+      "formatted": "21 175 подписчиков",
+      "updatedAt": "2026-08-07T01:29:05.680Z",
       "source": "telegram",
       "stale": false
     }
   }
 };
 window.dispatchEvent(new CustomEvent('telegram-subscribers:loaded', { detail: window.TelegramSubscriberCounts }));
-<!-- trigger redeploy 2026-08-06T12:24:50Z -->
