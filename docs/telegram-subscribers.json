@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-13T22:39:12.855Z",
+  "generatedAt": "2026-08-14T22:20:35.785Z",
   "channels": {
     "rustartupgrants": {
       "ok": true,
       "username": "rustartupgrants",
       "title": "Гранты стартапам",
       "url": "https://t.me/rustartupgrants",
-      "count": 5368,
-      "formatted": "5 368 подписчиков",
-      "updatedAt": "2026-08-13T22:39:12.855Z",
+      "count": 5369,
+      "formatted": "5 369 подписчиков",
+      "updatedAt": "2026-08-14T22:20:35.785Z",
       "source": "telegram",
       "stale": false
     },
@@ -18,9 +18,9 @@
       "username": "methodyzer",
       "title": "Методайзер",
       "url": "https://t.me/methodyzer",
-      "count": 21305,
-      "formatted": "21 305 подписчиков",
-      "updatedAt": "2026-08-13T22:39:12.855Z",
+      "count": 21339,
+      "formatted": "21 339 подписчиков",
+      "updatedAt": "2026-08-14T22:20:35.785Z",
       "source": "telegram",
       "stale": false
     },
@@ -29,9 +29,9 @@
       "username": "bogatyiillustartor",
       "title": "Богатый иллюстратор (ArtCosmos School)",
       "url": "https://t.me/bogatyiillustartor",
-      "count": 16311,
-      "formatted": "16 311 подписчиков",
-      "updatedAt": "2026-08-13T22:39:12.855Z",
+      "count": 16318,
+      "formatted": "16 318 подписчиков",
+      "updatedAt": "2026-08-14T22:20:35.785Z",
       "source": "telegram",
       "stale": false
     }
