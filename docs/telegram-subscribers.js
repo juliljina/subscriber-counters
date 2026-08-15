@@ -1,15 +1,15 @@
 window.TelegramSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-08-14T22:20:35.785Z",
+  "generatedAt": "2026-08-15T22:19:23.496Z",
   "channels": {
     "rustartupgrants": {
       "ok": true,
       "username": "rustartupgrants",
       "title": "Гранты стартапам",
       "url": "https://t.me/rustartupgrants",
-      "count": 5369,
-      "formatted": "5 369 подписчиков",
-      "updatedAt": "2026-08-14T22:20:35.785Z",
+      "count": 5375,
+      "formatted": "5 375 подписчиков",
+      "updatedAt": "2026-08-15T22:19:23.496Z",
       "source": "telegram",
       "stale": false
     },
@@ -18,9 +18,9 @@ window.TelegramSubscriberCounts = {
       "username": "methodyzer",
       "title": "Методайзер",
       "url": "https://t.me/methodyzer",
-      "count": 21339,
-      "formatted": "21 339 подписчиков",
-      "updatedAt": "2026-08-14T22:20:35.785Z",
+      "count": 21356,
+      "formatted": "21 356 подписчиков",
+      "updatedAt": "2026-08-15T22:19:23.496Z",
       "source": "telegram",
       "stale": false
     },
@@ -29,9 +29,9 @@ window.TelegramSubscriberCounts = {
       "username": "bogatyiillustartor",
       "title": "Богатый иллюстратор (ArtCosmos School)",
       "url": "https://t.me/bogatyiillustartor",
-      "count": 16318,
-      "formatted": "16 318 подписчиков",
-      "updatedAt": "2026-08-14T22:20:35.785Z",
+      "count": 16316,
+      "formatted": "16 316 подписчиков",
+      "updatedAt": "2026-08-15T22:19:23.496Z",
       "source": "telegram",
       "stale": false
     }
