@@ -1,0 +1,18 @@
+window.TelegramSubscriberCounts = {
+  "version": 1,
+  "generatedAt": "2026-08-18T10:00:00.000Z",
+  "channels": {
+    "promtk": {
+      "ok": true,
+      "username": "promtk",
+      "title": "ПРО МТК",
+      "url": "https://t.me/promtk",
+      "count": 1654,
+      "formatted": "1 654 подписчика",
+      "updatedAt": "2026-08-18T10:00:00.000Z",
+      "source": "telegram",
+      "stale": false
+    }
+  }
+};
+window.dispatchEvent(new CustomEvent('telegram-subscribers:loaded', { detail: window.TelegramSubscriberCounts }));

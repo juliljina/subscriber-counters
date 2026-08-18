@@ -23,6 +23,13 @@ jobs:
       - name: Update Telegram subscriber counters
         run: node scripts/update-telegram-subscribers.mjs
 
+      - name: Update promtk subscriber counters
+        run: node scripts/update-telegram-subscribers.mjs
+        env:
+          TELEGRAM_CHANNELS_CONFIG: config/promtk-channels.json
+          TELEGRAM_SUBSCRIBERS_JSON: docs/promtk-subscribers.json
+          TELEGRAM_SUBSCRIBERS_JS: docs/promtk-subscribers.js
+
       - name: Update MAX subscriber counters
         run: node scripts/update-max-subscribers.mjs
 
@@ -31,11 +38,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if git diff --quiet -- docs/telegram-subscribers.json docs/telegram-subscribers.js docs/max-subscribers.json docs/max-subscribers.js; then
+          if git diff --quiet -- docs/telegram-subscribers.json docs/telegram-subscribers.js docs/promtk-subscribers.json docs/promtk-subscribers.js docs/max-subscribers.json docs/max-subscribers.js; then
             echo "No subscriber counter changes."
             exit 0
           fi
 
-          git add docs/telegram-subscribers.json docs/telegram-subscribers.js docs/max-subscribers.json docs/max-subscribers.js
+          git add docs/telegram-subscribers.json docs/telegram-subscribers.js docs/promtk-subscribers.json docs/promtk-subscribers.js docs/max-subscribers.json docs/max-subscribers.js
           git commit -m "Update messenger subscriber counters"
           git push
