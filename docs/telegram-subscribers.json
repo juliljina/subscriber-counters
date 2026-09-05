@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-04T23:43:38.512Z",
+  "generatedAt": "2026-09-05T23:34:01.337Z",
   "channels": {
     "methodyzer": {
       "ok": true,
       "username": "methodyzer",
       "title": "Методайзер",
       "url": "https://t.me/methodyzer",
-      "count": 21814,
-      "formatted": "21 814 подписчиков",
-      "updatedAt": "2026-09-04T23:43:38.512Z",
+      "count": 21832,
+      "formatted": "21 832 подписчика",
+      "updatedAt": "2026-09-05T23:34:01.337Z",
       "source": "telegram",
       "stale": false
     },
@@ -20,7 +20,7 @@
       "url": "https://t.me/bogatyiillustartor",
       "count": 16267,
       "formatted": "16 267 подписчиков",
-      "updatedAt": "2026-09-04T23:43:38.512Z",
+      "updatedAt": "2026-09-05T23:34:01.337Z",
       "source": "telegram",
       "stale": false
     }
