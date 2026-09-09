@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-08T23:50:33.547Z",
+  "generatedAt": "2026-09-09T23:50:11.525Z",
   "channels": {
     "promtk": {
       "ok": true,
       "username": "promtk",
       "title": "ПРО МТК",
       "url": "https://t.me/promtk",
-      "count": 1838,
-      "formatted": "1 838 подписчиков",
-      "updatedAt": "2026-09-08T23:50:33.547Z",
+      "count": 1839,
+      "formatted": "1 839 подписчиков",
+      "updatedAt": "2026-09-09T23:50:11.525Z",
       "source": "telegram",
       "stale": false
     }
