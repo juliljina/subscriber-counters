@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-22T23:59:43.604Z",
+  "generatedAt": "2026-09-24T00:14:24.282Z",
   "channels": {
     "promtk": {
       "ok": true,
@@ -9,7 +9,7 @@
       "url": "https://t.me/promtk",
       "count": 1926,
       "formatted": "1 926 подписчиков",
-      "updatedAt": "2026-09-22T23:59:43.604Z",
+      "updatedAt": "2026-09-24T00:14:24.282Z",
       "source": "telegram",
       "stale": false
     }
