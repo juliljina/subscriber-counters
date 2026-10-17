@@ -1,15 +1,15 @@
 window.MaxSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-10-16T00:05:01.435Z",
+  "generatedAt": "2026-10-17T00:09:22.316Z",
   "channels": {
     "id782615006635_biz": {
       "ok": true,
       "id": "id782615006635_biz",
       "title": "Гранты стартапам",
       "url": "https://max.ru/id782615006635_biz",
-      "count": 440,
-      "formatted": "440 подписчиков",
-      "updatedAt": "2026-10-16T00:05:01.435Z",
+      "count": 441,
+      "formatted": "441 подписчик",
+      "updatedAt": "2026-10-17T00:09:22.316Z",
       "source": "max",
       "stale": false
     }
