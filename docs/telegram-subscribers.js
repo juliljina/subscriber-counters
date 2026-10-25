@@ -1,15 +1,15 @@
 window.TelegramSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-10-24T00:15:51.144Z",
+  "generatedAt": "2026-10-25T00:00:01.724Z",
   "channels": {
     "methodyzer": {
       "ok": true,
       "username": "methodyzer",
       "title": "Методайзер",
       "url": "https://t.me/methodyzer",
-      "count": 22567,
-      "formatted": "22 567 подписчиков",
-      "updatedAt": "2026-10-24T00:15:51.144Z",
+      "count": 22581,
+      "formatted": "22 581 подписчик",
+      "updatedAt": "2026-10-25T00:00:01.724Z",
       "source": "telegram",
       "stale": false
     },
@@ -18,9 +18,9 @@ window.TelegramSubscriberCounts = {
       "username": "bogatyiillustartor",
       "title": "Богатый иллюстратор (ArtCosmos School)",
       "url": "https://t.me/bogatyiillustartor",
-      "count": 16259,
-      "formatted": "16 259 подписчиков",
-      "updatedAt": "2026-10-24T00:15:51.144Z",
+      "count": 16254,
+      "formatted": "16 254 подписчика",
+      "updatedAt": "2026-10-25T00:00:01.724Z",
       "source": "telegram",
       "stale": false
     }
