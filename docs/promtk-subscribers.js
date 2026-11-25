@@ -1,6 +1,6 @@
 window.TelegramSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-11-25T04:46:13.848Z",
+  "generatedAt": "2026-11-25T11:59:19.954Z",
   "channels": {
     "promtk": {
       "ok": true,
@@ -9,7 +9,7 @@ window.TelegramSubscriberCounts = {
       "url": "https://t.me/promtk",
       "count": 1891,
       "formatted": "1 891 подписчик",
-      "updatedAt": "2026-11-25T04:46:13.848Z",
+      "updatedAt": "2026-11-25T11:59:19.954Z",
       "source": "telegram",
       "stale": false
     }

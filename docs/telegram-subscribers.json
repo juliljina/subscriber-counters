@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-25T04:46:13.150Z",
+  "generatedAt": "2026-11-25T11:59:19.251Z",
   "channels": {
     "methodyzer": {
       "ok": true,
       "username": "methodyzer",
       "title": "Методайзер",
       "url": "https://t.me/methodyzer",
-      "count": 23203,
-      "formatted": "23 203 подписчика",
-      "updatedAt": "2026-11-25T04:46:13.150Z",
+      "count": 23215,
+      "formatted": "23 215 подписчиков",
+      "updatedAt": "2026-11-25T11:59:19.251Z",
       "source": "telegram",
       "stale": false
     },
@@ -18,9 +18,9 @@
       "username": "bogatyiillustartor",
       "title": "Богатый иллюстратор (ArtCosmos School)",
       "url": "https://t.me/bogatyiillustartor",
-      "count": 16088,
-      "formatted": "16 088 подписчиков",
-      "updatedAt": "2026-11-25T04:46:13.150Z",
+      "count": 16087,
+      "formatted": "16 087 подписчиков",
+      "updatedAt": "2026-11-25T11:59:19.251Z",
       "source": "telegram",
       "stale": false
     }
