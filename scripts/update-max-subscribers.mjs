@@ -54,7 +54,7 @@ async function buildChannelEntry(channel, id, previousChannel) {
   const fallback = parseFallback(channel);
 
   try {
-    const count = await fetchMaxSubscribers(id);
+    const { count, channelId } = await fetchMaxSubscribers(id, channel.expectedChannelId);
     return {
       ok: true,
       id,
@@ -64,12 +64,15 @@ async function buildChannelEntry(channel, id, previousChannel) {
       formatted: formatSubscribersRu(count),
       updatedAt: generatedAt,
       source: "max",
+      channelId,
       stale: false,
     };
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
 
-    if (Number.isInteger(previousChannel?.count) && previousChannel?.formatted) {
+    if (Number.isSafeInteger(previousChannel?.count) && previousChannel.count >= 0 &&
+        previousChannel?.formatted && previousChannel.id === id && previousChannel.url === url &&
+        (!channel.expectedChannelId || previousChannel.channelId === channel.expectedChannelId)) {
       return {
         ...previousChannel,
         ok: true,
@@ -98,8 +101,9 @@ async function buildChannelEntry(channel, id, previousChannel) {
   }
 }
 
-async function fetchMaxSubscribers(id) {
+async function fetchMaxSubscribers(id, expectedChannelId) {
   const response = await fetch(`https://max.ru/${id}`, {
+    ...(expectedChannelId ? { signal: AbortSignal.timeout(15000), redirect: "error" } : {}),
     headers: {
       "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
       "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -113,19 +117,32 @@ async function fetchMaxSubscribers(id) {
   }
 
   const html = await response.text();
-  const count = extractParticipantsCount(html);
+  let channelId = null;
+  let count;
+  if (expectedChannelId) {
+    // Validate public URL and the numeric channel identity in the same channel object.
+    const canonical = html.match(/<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']([^"']+)["'])[^>]*>/i)?.[1];
+    if (canonical !== `https://max.ru/${id}`) throw new Error("MAX canonical URL mismatch");
+    const channel = html.match(/linkInfo\s*:\s*\{\s*channel\s*:\s*\{([\s\S]*?)\}\s*,\s*posts\s*:/)?.[1];
+    if (!channel) throw new Error("MAX channel object missing");
+    channelId = channel.match(/\bchannelId\s*:\s*(\d+)(?=\s*(?:[,}]|$))/)?.[1];
+    if (channelId !== expectedChannelId) throw new Error("MAX channel identity mismatch");
+    count = extractParticipantsCount(channel);
+  } else {
+    count = extractParticipantsCount(html);
+  }
 
-  if (!Number.isInteger(count) || count < 0) {
+  if (!Number.isSafeInteger(count) || count < 0) {
     throw new Error("MAX participant count was not found");
   }
 
-  return count;
+  return { count, channelId };
 }
 
 function extractParticipantsCount(html) {
   const patterns = [
-    /["']participantsCount["']\s*:\s*(\d+)/,
-    /\bparticipantsCount\s*:\s*(\d+)/,
+    /["']participantsCount["']\s*:\s*(\d+)(?=\s*(?:[,}]|$))/,
+    /\bparticipantsCount\s*:\s*(\d+)(?=\s*(?:[,}]|$))/,
   ];
 
   for (const pattern of patterns) {
@@ -156,7 +173,8 @@ function parseFallback(channel) {
   }
 
   if (channel.fallbackText) {
-    const count = Number(String(channel.fallbackText).replace(/[^\d]/g, ""));
+    const digits = String(channel.fallbackText).replace(/[^\d]/g, "");
+    const count = digits ? Number(digits) : null;
     return {
       count: Number.isInteger(count) && count >= 0 ? count : null,
       formatted: channel.fallbackText,

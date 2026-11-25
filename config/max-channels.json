@@ -4,6 +4,12 @@
       "id": "id782615006635_biz",
       "title": "Гранты стартапам",
       "fallbackText": "150 подписчиков"
+    },
+    {
+      "id": "methodyzer",
+      "title": "Реальный Репетитор | Илья Методайзер",
+      "expectedChannelId": "70965304787146",
+      "fallbackText": "Канал в MAX"
     }
   ]
 }
