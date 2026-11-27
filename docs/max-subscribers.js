@@ -1,15 +1,15 @@
 window.MaxSubscriberCounts = {
   "version": 1,
-  "generatedAt": "2026-11-26T03:57:00.535Z",
+  "generatedAt": "2026-11-27T03:55:52.516Z",
   "channels": {
     "id782615006635_biz": {
       "ok": true,
       "id": "id782615006635_biz",
       "title": "Гранты стартапам",
       "url": "https://max.ru/id782615006635_biz",
-      "count": 453,
-      "formatted": "453 подписчика",
-      "updatedAt": "2026-11-26T03:57:00.535Z",
+      "count": 455,
+      "formatted": "455 подписчиков",
+      "updatedAt": "2026-11-27T03:55:52.516Z",
       "source": "max",
       "channelId": null,
       "stale": false
@@ -19,9 +19,9 @@ window.MaxSubscriberCounts = {
       "id": "methodyzer",
       "title": "Реальный Репетитор | Илья Методайзер",
       "url": "https://max.ru/methodyzer",
-      "count": 2140,
-      "formatted": "2 140 подписчиков",
-      "updatedAt": "2026-11-26T03:57:00.535Z",
+      "count": 2156,
+      "formatted": "2 156 подписчиков",
+      "updatedAt": "2026-11-27T03:55:52.516Z",
       "source": "max",
       "channelId": "70965304787146",
       "stale": false
